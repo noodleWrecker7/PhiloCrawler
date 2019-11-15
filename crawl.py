@@ -111,7 +111,11 @@ class PhilosophyCrawler():
 
         print(result + "\n\n-------------------------------------- \n\n\n")
         data = {'chain': self.visited}
-        r = requests.post(url="http://test.noodlewrecker.xyz:3000/crawl/add/"+endpoint, data=data)
+        try:
+            r = requests.post(url="http://test.noodlewrecker.xyz:3000/crawl/add/"+endpoint, data=data)
+        except Exception:
+            print("Could not push results to database. Dumping to console...\n")
+            print(self.visited)
 
 
 if __name__ == "__main__":  # only runs if main file
