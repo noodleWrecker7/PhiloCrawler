@@ -2,7 +2,6 @@ import urllib3
 import sys
 from bs4 import BeautifulSoup
 import time
-import json
 import requests
 
 
