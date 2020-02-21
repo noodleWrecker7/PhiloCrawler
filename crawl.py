@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import time
 import requests
 
-
+apiurl = "http://test.noodlewrecker.me:3000"
 def strip_brackets(string):
     """
     remove brackets from a string
@@ -112,7 +112,7 @@ class PhilosophyCrawler():
         print(result + "\n\n-------------------------------------- \n\n\n")
         data = {'chain': self.visited}
         try:
-            r = requests.post(url="http://test.noodlewrecker.xyz:3000/crawl/add/"+endpoint, data=data)
+            r = requests.post(url=apiurl + "/crawl/add/"+endpoint, data=data)
         except Exception:
             print("Could not push results to database. Dumping to console...\n")
             print(self.visited)
